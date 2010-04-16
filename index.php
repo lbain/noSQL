@@ -15,17 +15,17 @@
 	<div id="main">
 	
  <form method="post" action="index.php">
- <label for="item">Title:</label>
- <input type="text" id="item" name="item" /><br />
-  <label for="priority">Body:</label>
- <textarea id="priority" name="priority"></textarea><br />
+ <label for="title">Title:</label>
+ <input type="text" id="title" name="title" /><br />
+  <label for="body">Body:</label>
+ <textarea id="body" name="body"></textarea><br />
   <input type="submit" value="add" name="submit" />
  </form>
 
   <?php
 
 $couch_dsn = "http://localhost:5984/";
-$couch_db = "example";
+$couch_db = "nosql";
 
 
 /**
@@ -44,17 +44,17 @@ $client = new couchClient($couch_dsn,$couch_db);
 
   
   
-  if (isset($_POST['item']))
+  if (isset($_POST['title']))
   {
-     $task = $_POST['item'];
-     $priority = $_POST['priority'];
-     echo "<p> Added $task</p>";
+     $title = $_POST['title'];
+     $body = $_POST['body'];
+     echo "<p> Added $title</p>";
    
      /* create a new task document */
      $todoTask = new StdClass();
-     $todoTask->_id = $task;
-     $todoTask->task = $task;
-     $todoTask->priority = $priority;
+     $todoTask->_id = $title;
+     $todoTask->title = $title;
+     $todoTask->body = $body;
      
      /* now try to insert it */
      try {
@@ -78,9 +78,9 @@ $client = new couchClient($couch_dsn,$couch_db);
     
     /* this just gets an id so need to retrieve document */
     $doc = $client->getDoc($row->id);
-    $priority =  $doc->priority;
-    $task = $doc->task;
-    echo "<tr><td  >$task</td><td  >$priority</td></tr>\n";
+    $body =  $doc->body;
+    $title = $doc->title;
+    echo "<tr><td  >$title</td><td  >$body</td></tr>\n";
   }
   
  
