@@ -6,7 +6,7 @@
   <title>toDo</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<script type="text/javascript" src="calendarDateInput.js" />
+<script type="text/javascript" src="calendarDateInput.js"></script>
 
 <body>
 <div id="wrap">
@@ -15,9 +15,9 @@
 	<div id="main">
 	
  <form method="post" action="index.php">
- <label for="item">Task:</label>
+ <label for="item">Title:</label>
  <input type="text" id="item" name="item" /><br />
-  <label for="priority">priority:</label>
+  <label for="priority">Body:</label>
  <input type="text" id="priority" name="priority" /><br />
   <input type="submit" value="add" name="submit" />
  </form>
