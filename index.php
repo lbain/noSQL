@@ -32,9 +32,9 @@ $couch_db = "example";
 * include the library
 */
 
-require_once "../lib/couch.php";
-require_once "../lib/couchClient.php";
-require_once "../lib/couchDocument.php";
+require_once "couch.php";
+require_once "couchClient.php";
+require_once "couchDocument.php";
 
 /**
 * create the client
