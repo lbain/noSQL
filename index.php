@@ -18,7 +18,7 @@
  <label for="item">Title:</label>
  <input type="text" id="item" name="item" /><br />
   <label for="priority">Body:</label>
- <input type="text" id="priority" name="priority" /><br />
+ <textarea id="priority" name="priority"></textarea><br />
   <input type="submit" value="add" name="submit" />
  </form>
 
