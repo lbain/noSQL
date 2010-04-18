@@ -81,7 +81,7 @@ $client = new couchClient($couch_dsn,$couch_db);
     $doc = $client->getDoc($row->id);
     $body =  $doc->body;
     $title = $doc->title;
-    echo "<tr><td  >$title</td><td  >$body</td></tr>\n";
+    echo "<tr><td  ><a href='entry_display.php?title=$title'>$title</a></td><td  >$body</td></tr>\n";
   }
   
  
