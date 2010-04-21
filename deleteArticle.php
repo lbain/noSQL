@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -49,15 +48,15 @@ $client = new couchClient($couch_dsn,$couch_db);
   {
      $title = $_GET['title'];
      
-     echo "#### Deleting document \"some_doc\"\n";
-echo "delete using previous \$doc object : \$client->deleteDoc(\$doc)\n";
+//echo "delete using previous \$doc object : \$client->deleteDoc(\$doc)\n";
 try {
 	$result = $client->deleteDoc($client->getDoc($title));
+	echo "Deleted document $title\n";
 } catch (Exception $e) {
 	echo "Something weird happened: ".$e->getMessage()." (errcode=".$e->getCode().")\n";
 	exit(1);
 }
-echo "Doc deleted, CouchDB response body: ".print_r($result,true)."\n";
+//echo "Doc deleted, CouchDB response body: ".print_r($result,true)."\n";
 /*
  $all_docs = $client->getAllDocs();
  #echo "Database got ".$all_docs->total_rows." documents.<BR>\n";
@@ -78,6 +77,7 @@ echo "Doc deleted, CouchDB response body: ".print_r($result,true)."\n";
   ?>
    </table>
    <button style="width:65; height:65" onClick="window.location='http://localhost/noSQL/addArticle.php'">Add an Article</button>
+   <button style="width:65; height:65" onClick="window.location='http://localhost/noSQL/index.php'">See all Articles</button>
    </div>
 </div>
 </body>

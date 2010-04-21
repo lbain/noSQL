@@ -41,8 +41,7 @@ $client = new couchClient($couch_dsn,$couch_db);
   $qs_title = $_GET['title'];
   #echo "$title";
 
-            
-     
+$delete =  "http://localhost/noSQL/deleteArticle.php?title=".$qs_title;
   
   
  $all_docs = $client->getAllDocs();
@@ -64,9 +63,7 @@ $client = new couchClient($couch_dsn,$couch_db);
  	   echo "<tr><td><h1>$title</h1></td><td  >$body</td></tr>\n";
 }
   }
-  
- 
-  ?>
+?>
    </table>
 
 	
@@ -74,10 +71,13 @@ $client = new couchClient($couch_dsn,$couch_db);
 	
 	</div>
 	
-	<div style = "width: 200px; padding-top: 100px"><a href='index.php'>Back to main page</a></div>
-   
-
-	
+	<div style = "width: 300px; padding-top: 100px">
+		<a href='index.php'>Back to main page</a>
+		</br>
+	<?php
+		echo "<a href=\"$delete\">Delete this article</a>";
+	?>
+</div>
 </div>
 </body>
 </html>
