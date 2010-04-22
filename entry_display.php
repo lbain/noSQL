@@ -1,23 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>toDo</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<script type="text/javascript" src="calendarDateInput.js"></script>
-
-<body>
-<div id="wrap">
-
-    
-	<div id="main">
-	
-
-
-
-  <?php
+<?php
 
 $couch_dsn = "http://localhost:5984/";
 $couch_db = "nosql";
@@ -42,12 +23,34 @@ $client = new couchClient($couch_dsn,$couch_db);
   #echo "$title";
 
 $delete =  "http://localhost/noSQL/deleteArticle.php?title=".$qs_title;
+$edit = "http://localhost/noSQL/editArticle.php?title=".$qs_title;
   
   
  $all_docs = $client->getAllDocs();
  #echo "Database got ".$all_docs->total_rows." documents.<BR>\n";
  #echo "<table id=\"hor-minimalist-b\">\n<tr><th>Title</th><th>Text</th><tr>\n\n";
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>toDo</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<script type="text/javascript" src="calendarDateInput.js"></script>
 
+<body>
+<div id="wrap">
+
+    
+	<div id="main">
+	
+
+
+
+  
+  <?php
  foreach ( $all_docs->rows as $row ) {
     #echo "".$row->id."<BR>\n";
     #echo "".$row->title."<BR>\n";
@@ -76,6 +79,8 @@ $delete =  "http://localhost/noSQL/deleteArticle.php?title=".$qs_title;
 		</br>
 	<?php
 		echo "<a href=\"$delete\">Delete this article</a>";
+		echo " ";
+		echo "<a href=\"$edit\">Edit this article</a>";
 	?>
 </div>
 </div>
