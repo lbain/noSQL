@@ -11,8 +11,17 @@
 <body>
 <div id="wrap">
 
+<table border="0" cellpadding="0" cellspacing="0" width="600">
+<tr><td align="right">
+<form action="search.php" method="post">
+<input type="text" name="searchid" value="" style="color: #000000; background: #FFFFFF">
+<input type="submit" value="Search">
+</form>
+</td></tr>
+</table>
     
 	<div id="main">
+
 <!--
  <form method="post" action="index.php">
  <label for="title">Title:</label>
