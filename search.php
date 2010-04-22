@@ -33,7 +33,7 @@ require_once "couchDocument.php";
 
 $client = new couchClient($couch_dsn,$couch_db);
 
-if (!isset($_POST['searchid'])) {
+if (!isset($_POST['searchid']) || $_POST['searchid'] == "") {
 	//Redirect to index
 	echo('<meta http-equiv="refresh" content="0;url=index.php">');
 	exit;
@@ -48,7 +48,7 @@ foreach ( $all_docs->rows as $row ) {
 
 	$doc = $client->getDoc($row->id);
 
-	if ($doc->title == $_POST['searchid']) {
+	if ((stristr($doc->title, $_POST['searchid']) !== FALSE) || (stristr($doc->body, $_POST['searchid']) !== FALSE)) {
 
 		$foundsearch = 1;
 
