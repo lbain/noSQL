@@ -23,7 +23,7 @@ $client = new couchClient($couch_dsn,$couch_db);
   #echo "$title";
 
 $delete =  "http://localhost/noSQL/deleteArticle.php?title=".$qs_title;
-$edit = "http://localhost/noSQL/edit_article.php?title=".$qs_title;
+$edit = "http://localhost/noSQL/editArticle.php?title=".$qs_title;
   
   
  $all_docs = $client->getAllDocs();
